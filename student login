@@ -1,1 +1,77 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Student Login - Campus Portal</title>
+  <style>
+    body {
+      margin: 0;
+      font-family: Arial, sans-serif;
+      background: linear-gradient(135deg, #1590c1, #2563eb);
+      height: 100vh;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+    }
 
+    .login-container {
+      background: white;
+      padding: 40px;
+      border-radius: 16px;
+      box-shadow: 0 10px 25px rgba(0, 0, 0, 0.1);
+      width: 100%;
+      max-width: 400px;
+      text-align: center;
+    }
+
+    .login-container h2 {
+      margin-bottom: 24px;
+      color: #1e3a8a;
+    }
+
+    input[type="text"],
+    input[type="password"] {
+      width: 100%;
+      padding: 12px;
+      margin-bottom: 20px;
+      border: 1px solid #ccc;
+      border-radius: 8px;
+      font-size: 16px;
+    }
+
+    .login-btn {
+      width: 100%;
+      padding: 12px;
+      background-color: #1d4ed8;
+      color: white;
+      border: none;
+      border-radius: 8px;
+      font-size: 16px;
+      cursor: pointer;
+      transition: background 0.3s ease;
+    }
+
+    .login-btn:hover {
+      background-color: #1e40af;
+    }
+
+    .footer-note {
+      margin-top: 16px;
+      font-size: 0.85rem;
+      color: #6b7280;
+    }
+  </style>
+</head>
+<body>
+  <div class="login-container">
+    <h2>Student Login</h2>
+    <form action="#" method="POST">
+      <input type="text" name="username" placeholder="Enter your ID" required />
+      <input type="password" name="password" placeholder="Enter your password" required />
+      <button type="submit" class="login-btn">Login</button>
+    </form>
+    <div class="footer-note">Campus Portal © 2025</div>
+  </div>
+</body>
+</html>
