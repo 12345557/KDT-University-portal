@@ -1,0 +1,134 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>KDT Portal Login</title>
+    <link rel="stylesheet" href="style.css" />
+</head>
+<body>
+    <div class="login-container">
+        <h1>KDT Portal</h1>
+
+        <!-- Role Selection -->
+        <label for="role">Login as:</label>
+        <select id="role" name="role" required>
+            <option value="">Select Role</option>
+            <option value="student">Student</option>
+            <option value="admin">Admin</option>
+        </select>
+
+        <!-- Hidden Fields -->
+        <div id="extraFields" class="hidden">
+            <!-- ID Input -->
+            <label for="idInput" id="idLabel">Registration ID:</label>
+            <input 
+                type="text" 
+                id="idInput" 
+                name="idInput" 
+                placeholder="e.g., RA2311003050404" 
+                required 
+            />
+
+            <!-- Password Input -->
+            <label for="password">Password:</label>
+            <input 
+                type="password" 
+                id="password" 
+                name="password" 
+                placeholder="Enter Password" 
+                required 
+            />
+
+            <!-- Login Button -->
+            <button id="loginBtn">Login</button>
+
+            <!-- Error Message -->
+            <p id="error-msg"></p>
+        </div>
+    </div>
+
+    <script>
+    document.addEventListener("DOMContentLoaded", () => {
+        const roleSelect = document.getElementById("role");
+        const extraFields = document.getElementById("extraFields");
+        const label = document.getElementById("idLabel");
+        const input = document.getElementById("idInput");
+        const passwordField = document.getElementById("password");
+        const loginBtn = document.getElementById("loginBtn");
+        const errorMsg = document.getElementById("error-msg");
+
+        // Show/hide fields based on role selection
+        roleSelect.addEventListener("change", function () {
+            if (this.value === "student") {
+                label.textContent = "Registration ID:";
+                input.placeholder = "e.g., RA2311003050404";
+                extraFields.classList.add("show");
+                extraFields.classList.remove("hidden");
+            } else if (this.value === "admin") {
+                label.textContent = "Employee ID:";
+                input.placeholder = "e.g., EMP1000";
+                extraFields.classList.add("show");
+                extraFields.classList.remove("hidden");
+            } else {
+                extraFields.classList.remove("show");
+                extraFields.classList.add("hidden");
+            }
+        });
+
+        // Login button click
+        loginBtn.addEventListener("click", () => {
+            const role = roleSelect.value.trim();
+            const idValue = input.value.trim();
+            const password = passwordField.value.trim();
+
+            if (!role) {
+                errorMsg.textContent = "Please select a role.";
+                return;
+            }
+
+            if (!idValue || !password) {
+                errorMsg.textContent = "Please enter all required fields.";
+                return;
+            }
+
+            // Example simple regex for regId validation
+            if (role === "student" && !/^RA\d{14}$/.test(idValue)) {
+                errorMsg.textContent = "Invalid Registration ID format.";
+                return;
+            }
+            if (role === "admin" && !/^EMP\d{4}$/.test(idValue)) {
+                errorMsg.textContent = "Invalid Employee ID format.";
+                return;
+            }
+
+            errorMsg.textContent = "";
+
+            // Redirect based on role
+            if (role === "student") {
+                window.location.href = `course-enrollment.html?regId=${encodeURIComponent(idValue)}`;
+            } else if (role === "admin") {
+                alert("Admin login detected. Redirect to admin dashboard here.");
+            }
+        });
+    });
+    </script>
+
+    <style>
+        /* Hidden state */
+        .hidden {
+            max-height: 0;
+            overflow: hidden;
+            opacity: 0;
+        }
+        /* Show with animation */
+        #extraFields {
+            transition: max-height 0.4s ease, opacity 0.4s ease;
+        }
+        #extraFields.show {
+            max-height: 500px;
+            opacity: 1;
+        }
+    </style>
+</body>
+</html>

@@ -1,0 +1,101 @@
+/* Global setup */
+body {
+    font-family: 'Poppins', sans-serif;
+    background: radial-gradient(ellipse, #aa91a4, #ece1f8, #9d3f79);
+    background-repeat: no-repeat;
+    background-attachment: fixed;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+    margin: 0;
+}
+
+/* Login container with fade-in */
+.login-container {
+    background: rgb(204, 131, 176);
+    padding: 30px;
+    border-radius: 12px;
+    box-shadow: 0 4px 20px rgba(0, 0, 0, 0.1);
+    width: 320px;
+    text-align: center;
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+    animation: fadeIn 0.8s ease forwards;
+    opacity: 0;
+}
+
+.login-container:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 6px 25px rgba(0, 0, 0, 0.15);
+}
+
+/* Fade-in keyframes */
+@keyframes fadeIn {
+    from {
+        opacity: 0;
+        transform: translateY(10px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+/* Heading style */
+.login-container h1 {
+    margin-bottom: 20px;
+    color: #530a4a;
+}
+
+/* Labels */
+label {
+    display: block;
+    margin-top: 10px;
+    text-align: left;
+    font-weight: bold;
+    font-size: 14px;
+}
+
+/* Inputs and select box */
+input, select {
+    width: 100%;
+    padding: 10px;
+    margin-top: 5px;
+    margin-bottom: 15px;
+    border-radius: 6px;
+    border: 1px solid #8c809c;
+    font-size: 14px;
+    box-sizing: border-box;
+    transition: border-color 0.3s ease, box-shadow 0.3s ease;
+}
+
+input:focus, select:focus {
+    border-color: #573b7a;
+    box-shadow: 0 0 5px rgba(85, 85, 238, 0.5);
+    outline: none;
+}
+
+/* Buttons */
+button {
+    background-color: #553770;
+    color: rgb(237, 213, 245);
+    padding: 10px;
+    border: none;
+    border-radius: 6px;
+    width: 100%;
+    font-size: 16px;
+    cursor: pointer;
+    transition: background-color 0.3s ease, transform 0.2s ease;
+}
+
+button:hover {
+    background-color: #6d4890;
+    transform: scale(1.02);
+}
+
+/* Error message */
+#error-msg {
+    color: red;
+    margin-top: 10px;
+    font-size: 13px;
+}
