@@ -1,7 +1,7 @@
 /* Global setup */
 body {
     font-family: 'Poppins', sans-serif;
-    background: radial-gradient(ellipse, #aa91a4, #ece1f8, #9d3f79);
+    background: radial-gradient(ellipse, #ffffff, #ffffff, #00087a);
     background-repeat: no-repeat;
     background-attachment: fixed;
     display: flex;
@@ -13,7 +13,7 @@ body {
 
 /* Login container with fade-in */
 .login-container {
-    background: rgb(204, 131, 176);
+    background: rgb(252, 251, 252);
     padding: 30px;
     border-radius: 12px;
     box-shadow: 0 4px 20px rgba(0, 0, 0, 0.1);
@@ -44,7 +44,7 @@ body {
 /* Heading style */
 .login-container h1 {
     margin-bottom: 20px;
-    color: #530a4a;
+    color: #00087a;
 }
 
 /* Labels */
@@ -63,22 +63,22 @@ input, select {
     margin-top: 5px;
     margin-bottom: 15px;
     border-radius: 6px;
-    border: 1px solid #8c809c;
+    border: 1px solid #01075c;
     font-size: 14px;
     box-sizing: border-box;
     transition: border-color 0.3s ease, box-shadow 0.3s ease;
 }
 
 input:focus, select:focus {
-    border-color: #573b7a;
+    border-color: #00087a;
     box-shadow: 0 0 5px rgba(85, 85, 238, 0.5);
     outline: none;
 }
 
 /* Buttons */
 button {
-    background-color: #553770;
-    color: rgb(237, 213, 245);
+    background-color: #00087a;
+    color: rgb(249, 247, 250);
     padding: 10px;
     border: none;
     border-radius: 6px;
@@ -89,7 +89,7 @@ button {
 }
 
 button:hover {
-    background-color: #6d4890;
+    background-color: #ffffff;
     transform: scale(1.02);
 }
 
