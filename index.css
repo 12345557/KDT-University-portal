@@ -1,0 +1,30 @@
+/* index.css - base reset styles for Campus Portal */
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+html, body, #root {
+  height: 100%;
+  width: 100%;
+}
+
+body {
+  font-family: Arial, Helvetica, sans-serif;
+  background-color: #f9fafb;
+  color: #111827;
+  line-height: 1.5;
+}
+
+/* Remove default button + input styling for consistency */
+button, input, select {
+  font-family: inherit;
+  font-size: 1rem;
+}
+
+/* Make images & tables responsive */
+img, table {
+  max-width: 100%;
+}
