@@ -1,30 +1,10 @@
-/* App.css - Campus Portal UI with Blue Shades */
+/* App.css - Campus Portal UI 
 
-:root {
-  --brand: #2563eb; /* Indigo-600 */
-  --brand-light: #3b82f6; /* Indigo-500 */
-  --brand-lighter: #60a5fa; /* Indigo-400 */
-  --brand-dark: #1e40af; /* Indigo-800 */
-  --muted: #6b7280;
-  --success: #16a34a;
-  --danger: #dc2626;
-  --bg: #f0f4ff; /* light blue background */
-  --card: #ffffff;
-  --radius: 18px;
-  --shadow: 0 4px 16px rgba(37,99,235,0.2);
-}
-
-body {
-  margin: 0;
-  font-family: "Segoe UI", Arial, sans-serif;
-  background: var(--bg);
-  color: #111;
-}
-
+/* Containers */
 .app-container {
-  max-width: 1000px;
+  max-width: 600px;
   margin: auto;
-  padding: 24px;
+  padding: 60px;
 }
 
 /* Cards */
@@ -32,94 +12,154 @@ body {
   background: var(--card);
   border-radius: var(--radius);
   box-shadow: var(--shadow);
-  padding: 28px;
+  padding: 130px;
   margin-bottom: 20px;
   border-top: 4px solid var(--brand);
+  transition: all 0.3s ease;
+}
+
+.card:hover {
+  transform: translateY(-4px);
+  box-shadow: 5 6px 18px rgba(220, 38, 38, 0.3);
 }
 
 /* Headings */
 h1, h2, h3 {
-  margin: 0 0 16px 0;
+  margin: 0 16px 16px 0;
   color: var(--brand-dark);
 }
 
 /* Inputs */
 input, select {
-  padding: 10px 12px;
-  margin: 8px 0;
+  padding: 15px 12px;
+  margin: 12px 8px;
   border-radius: 8px;
-  border: 1px solid var(--brand-light);
+  border: 2px solid var(--brand-light);
   font-size: 0.95rem;
   width: 100%;
-  max-width: 360px;
+  max-width: 300px;
+  transition: all 0.15s ease;
 }
 
 input:focus, select:focus {
   border-color: var(--brand-dark);
   outline: none;
-  box-shadow: 0 0 0 3px rgba(59,130,246,0.2);
+  box-shadow: 0 0 8px rgba(220, 38, 38, 0.35);
+  transform: scale(1.02);
 }
 
 /* Buttons */
 button {
   border: none;
-  cursor: pointer;
-  border-radius: 10px;
-  font-weight: 600;
-  transition: all 0.2s ease;
+  cursor: default;
+  border-radius: 25px;
+  font-weight: 510;
+  transition: all 0.15s ease;
+  position: relative;
+  overflow: hidden;
 }
 
-/* Primary action buttons */
+/* Ripple Effect */
+button::after {
+  content: "";
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  width: 0;
+  height: 0;
+  background: rgba(255, 0, 0, 0.4);
+  border-radius: 100%;
+  transform: translate(-50%, -50%);
+  transition: width 0.1s ease, height 0.1s ease, opacity 0.2s ease;
+  pointer-events: none;
+}
+
+button:active::after {
+  width: 200%;
+  height: 200%;
+  opacity: 10;
+}
+
+/* Primary Button */
 button.primary {
   background: linear-gradient(90deg, var(--brand), var(--brand-light));
   color: white;
-  padding: 12px 22px;
-  font-size: 1rem;
+  padding: 10px 16px;
+  font-size: 0.80rem;
 }
 
 button.primary:hover {
   background: var(--brand-dark);
 }
 
-/* Secondary buttons */
+/* Secondary Button */
 button.secondary {
   background: var(--brand-lighter);
   color: white;
-  padding: 8px 16px;
-  font-size: 0.85rem;
+  padding: 10px 16px;
+  font-size: 0.80rem;
 }
 
 button.secondary:hover {
   background: var(--brand);
 }
 
-/* Success / Danger */
+/* Success / Danger Buttons */
 button.success {
-  background: #22c55e;
+  background: var(--success);
   color: white;
-  padding: 10px 20px;
-  font-size: 0.9rem;
+  padding: 15px 20px;
+  font-size: 0.80rem;
 }
 
 button.danger {
   background: var(--danger);
   color: white;
   padding: 10px 20px;
-  font-size: 0.9rem;
+  font-size: 0.80rem;
 }
 
-/* Flex utilities */
+/* Flex Utilities */
 .flex {
   display: flex;
-  gap: 12px;
-  flex-wrap: wrap;
+  gap: 16px;
+  flex-wrap: nowrap;
 }
 
 .flex-col {
   flex-direction: column;
 }
 
-/* Table Styling */
+/* Centered Box */
+.center-box {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  min-height: 90vh;
+  background: var(--bg);
+  padding: 20px;
+}
+
+.box {
+  background: var(--card);
+  border-radius: 12px;
+  padding: 40px;
+  max-width: 250px;
+  width: 100%;
+  box-shadow: var(--shadow);
+  text-align: center;
+  transition: all 0.3s ease;
+  border: 2px solid transparent;
+}
+
+.box:hover,
+.box:focus-within {
+  box-shadow: 0 6px 20px rgba(220, 38, 38, 0.3);
+  border-color: var(--brand-light);
+  transform: translateY(-4px);
+}
+
+/* Tables */
 .table {
   width: 100%;
   border-collapse: separate;
@@ -144,18 +184,67 @@ button.danger {
 .table td {
   background: white;
   border-radius: 8px;
-  box-shadow: 0 2px 6px rgba(37,99,235,0.1);
+  box-shadow: 0 2px 6px rgba(220, 38, 38, 0.1);
 }
 
 .table td button {
   margin-right: 6px;
 }
 
+/* Alerts */
+.alert {
+  padding: 12px 12px;
+  margin: 10px 5px;
+  border-radius: 10px;
+  font-size: 0.95rem;
+  font-weight: 500;
+  box-shadow: 0 2px 8px rgba(0,0,0,0.08);
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  animation: fadeIn 0.05s ease;
+}
+
+.alert.success {
+  background: var(--success);
+  color: white;
+}
+
+.alert.error {
+  background: var(--red);
+  color: white;
+}
+
+.alert.info {
+  background: var(--pink);
+  color: #7f1d1d;
+}
+
+.alert button {
+  background: rgba(255,255,255,0.2);
+  border: none;
+  color: white;
+  padding: 4px 8px;
+  border-radius: 6px;
+  cursor: pointer;
+  font-size: 0.8rem;
+  transition: background 0.06s ease;
+}
+
+.alert button:hover {
+  background: rgba(255,255,255,0.35);
+}
+
+@keyframes fadeIn {
+  from { opacity: 0; transform: translateY(-10px); }
+  to { opacity: 1; transform: translateY(0); }
+}
+
 /* Responsive */
 @media (max-width: 768px) {
   .flex {
     flex-direction: column;
-    gap: 10px;
+    gap: 15px;
   }
 
   input, button {
@@ -165,6 +254,6 @@ button.danger {
 
   .table th, .table td {
     font-size: 0.8rem;
-    padding: 8px;
+    padding: 10px;
   }
 }
